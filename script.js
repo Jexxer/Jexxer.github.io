@@ -1,77 +1,72 @@
 const tQuestionDisplay = document.querySelector('#the-question')
 const tQuestionNumber = document.querySelector('#question-number')
 const tImage = document.querySelector('#image')
-const tButtonContainer = document.querySelector('#buttons-container')
+const tButtonContainerTop = document.querySelector('#buttons-container-top')
+const tButtonContainerBottom = document.querySelector('#buttons-container-bottom')
 let score = 0
+
 const marvelQuestions = {
     question1: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question1.png',
         question: 'How many Infinity Stones are there?',
         answer: 'Six',
         options: ['Five', 'Seven', 'Four', 'Six']
     },
     question2: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question2.png',
         question: 'Where is Captain America from?',
         answer: 'Brooklyn',
         options: ['Manhattan', 'Brooklyn', 'Queens', 'Harlem']
     },
     question3: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question3.png',
         question: 'Peggy Carter has a great-niece named...',
         answer: 'Sharon Carter',
         options: ['Sharon Carter', 'Carole Carter', 'Rosalynn Carter', 'Angela Carter']
     },
     question4: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question4.png',
         question: 'Captain America and Bucky\'s arm are made of...',
         answer: 'Vibranium',
         options: ['Titanium', 'Tungsten', 'Vibranium', 'Carbon Steel']
     },
     question5: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question5.png',
         question: 'In which movie did Spider-Man make his first appearance in the MCU?',
         answer: 'Captain America: Civil War',
         options: ['Thor: Ragnarok', 'Avengers: End Game', 'Avengers: Age of Ultron', 'Captain America: Civil War']
     },
     question6: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question6.png',
         question: 'What species is Groot?',
         answer: 'Flora Colossus',
         options: ['Phyllostachys Aurora', 'Flora Colossus', 'Ficus Lyrata', 'Phoenix Dactylifera']
     },
     question7: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question7.png',
         question: 'What color blood do Skrulls have?',
         answer: 'Blue',
         options: ['Blue', 'Red', 'Purple', 'Green']
     },
     question8: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question8.png',
         question: "What is Hawkeye’s weapon of choice?",
         answer: 'Bow',
         options: ['Staff', 'Rifle', 'Bow', 'Cross-bow']
     },
     question9: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question9.png',
         question: 'From which Infinity Stone did Carol Danvers get her powers?',
         answer: 'Space Stone',
         options: ['Space Stone', 'Soul Stone', 'Power Stone', 'Mind Stone']
     },
     question10: {
-        image: 'https://via.placeholder.com/400x500',
+        image: '/images/question10.png',
         question: 'What planet is Ronan from?',
         answer: 'Hala',
         options: ['Morag', 'Carthan', 'Xandar', 'Hala']
     }
 }
-
-
-
-
-
-
-
 
 // sets the starting question
 let questionNum = 0
@@ -79,13 +74,14 @@ let questionNum = 0
 function displayQuestion(){
     if(questionNum >= 10){
         // clear buttons
-        tButtonContainer.innerHTML = ''
+        tButtonContainerTop.innerHTML = ''
+        tButtonContainerBottom.innerHTML = ''
 
         // display score
         let scoreDiv = document.createElement('div')
         scoreDiv.setAttribute('id', 'score-display')
         scoreDiv.innerHTML = `You scored ${score}/10`
-        tButtonContainer.appendChild(scoreDiv)
+        tButtonContainerTop.appendChild(scoreDiv)
         score = 0
 
     } else {
@@ -95,7 +91,11 @@ function displayQuestion(){
         tImage.setAttribute('src', marvelQuestions[`question${questionNum}`].image )
 
         // ensure there are no buttons allready existing.
-        tButtonContainer.innerHTML = ''
+        tButtonContainerTop.innerHTML = ''
+        tButtonContainerBottom.innerHTML = ''
+
+        // Counts how many buttons are made
+        let buttonCount = 0
 
         // add buttons for question options w/ EventListener
         marvelQuestions[`question${questionNum}`].options.map(option => {
@@ -103,10 +103,19 @@ function displayQuestion(){
             let button = document.createElement('button')
             button.setAttribute('class', 'button')
 
+            // This if statement puts two buttons into a seperate div for styling
+            if(buttonCount >= 2){
+                button.innerText = option
+                button.addEventListener('click', buttonChoice)
+                tButtonContainerBottom.appendChild(button)
+            } else {
+                button.innerText = option
+                button.addEventListener('click', buttonChoice)
+                tButtonContainerTop.appendChild(button)
+                buttonCount += 1
+            }
             // applies button content and click event, places on screen.
-            button.innerText = option
-            button.addEventListener('click', buttonChoice)
-            tButtonContainer.appendChild(button)
+            
         })
         
     }
