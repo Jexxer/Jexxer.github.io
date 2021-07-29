@@ -73,6 +73,7 @@ let questionNum = 0
 // populates screen with current question data
 function displayQuestion(){
     if(questionNum >= 10){
+
         // clear buttons
         tButtonContainerTop.innerHTML = ''
         tButtonContainerBottom.innerHTML = ''
@@ -86,7 +87,7 @@ function displayQuestion(){
 
     } else {
         questionNum += 1
-        tQuestionNumber.innerText = `Question: ${questionNum}`
+        tQuestionNumber.innerText = `QUESTION: ${questionNum}`
         tQuestionDisplay.innerText = marvelQuestions[`question${questionNum}`].question
         tImage.setAttribute('src', marvelQuestions[`question${questionNum}`].image )
 
@@ -104,6 +105,7 @@ function displayQuestion(){
             button.setAttribute('class', 'button')
 
             // This if statement puts two buttons into a seperate div for styling
+            // applies button content and click event, places on screen.
             if(buttonCount >= 2){
                 button.innerText = option
                 button.addEventListener('click', buttonChoice)
@@ -114,7 +116,7 @@ function displayQuestion(){
                 tButtonContainerTop.appendChild(button)
                 buttonCount += 1
             }
-            // applies button content and click event, places on screen.
+            
             
         })
         
@@ -133,5 +135,8 @@ function buttonChoice(e){
     }
 }
 
+function clearPage(){
+    document.querySelector('#page-display').innerHTML = ''
+}
 
 displayQuestion()

@@ -1,6 +1,74 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #fceade;
+    background-color: #fdfffc;
     font-family: 'Poppins', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #011627;
+    align-items: center;
+    padding: 15px 10%;
+}
+
+li, a, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fdfffc;
+    text-decoration: none;
+}
+
+h1{
+    cursor: pointer;
+    margin-right: auto;
+    color: #fdfffc;
+}
+
+.marvel-text{
+    font-weight: 200;
+}
+
+#h1-span{
+    font-weight: 800;
+    color: #e71d36;
+}
+
+.nav-links{
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.nav-links li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover{
+    color: #25ced1;
+}
+
+#git-button{
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgb(33, 177, 179);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#git-button:hover{
+    background-color: rgba(0, 136, 169, 0.8);
 }
 
 #page-display{
@@ -9,9 +77,14 @@ body {
 }
 
 #question-number{
-    color: #25ced1;
+    color: #e71d36;
     margin: 0 auto;
     font-size: 2rem;
+}
+
+#image{
+    border-radius: 0.5rem;
+    box-shadow: 3px 3px 10px grey;
 }
 
 #image-container{
@@ -48,17 +121,25 @@ body {
     /* min-width: 100px; */
     border: none;
     border-radius: 4px;
-    background-color: #ff8a5b;
+    background-color: #011627;
     margin: 10px 10px;
+    box-shadow: 3px 3px 10px grey;
 }
 
 .button:hover{
-    background-color: #ea526f;
+    background-color: #e71d36;
 }
 
 @media(max-width: 500px){
     #the-question{
         font-size: 1.5rem;
+    }
+
+    #buttons-container-top,
+    #buttons-container-bottom{
+        flex-direction: column;
+        align-items: center;
+
     }
 
     .button{
