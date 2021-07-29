@@ -1,9 +1,15 @@
-const tQuestionDisplay = document.querySelector('#the-question')
-const tQuestionNumber = document.querySelector('#question-number')
-const tImage = document.querySelector('#image')
-const tButtonContainerTop = document.querySelector('#buttons-container-top')
-const tButtonContainerBottom = document.querySelector('#buttons-container-bottom')
-let score = 0
+const pageDisplay = document.querySelector('#page-display')
+const triviaNavButton = document.querySelector('#trivia-nav-button')
+
+// Declaring variables for trivia page to be used 
+let triviaQuestionNumber = 0
+let triviaScore = 0
+let tQuestionNumber;
+let imageContainer;
+let triviaImage;
+let triviaQuestion;
+let tButtonContainerTop;
+let tButtonContainerBottom;
 
 const marvelQuestions = {
     question1: {
@@ -68,30 +74,63 @@ const marvelQuestions = {
     }
 }
 
-// sets the starting question
-let questionNum = 0
 // populates screen with current question data
-function displayQuestion(){
-    if(questionNum >= 10){
+function triviaPage(){
+
+
+        if(triviaQuestionNumber == 0){
+        // Create, Define & place Triva question number
+        tQuestionNumber = document.createElement('div')
+        tQuestionNumber.setAttribute('id', 'question-number')
+        pageDisplay.appendChild(tQuestionNumber)
+
+        // Create, Define & Place Trivia Image container
+        imageContainer = document.createElement('div')
+        imageContainer.setAttribute('id', 'image-container')
+        pageDisplay.appendChild(imageContainer)
+
+        // Create, Define & Place Image inside container ^
+        triviaImage = document.createElement('img')
+        triviaImage.setAttribute('id', 'image')
+        triviaImage.setAttribute('alt', 'image')
+        imageContainer.appendChild(triviaImage)
+
+        // Create, Define & Place trivia question div
+        triviaQuestion = document.createElement('div')
+        triviaQuestion.setAttribute('id', 'the-question')
+        pageDisplay.appendChild(triviaQuestion)
+
+        // Create, Define & Place top button container
+        tButtonContainerTop = document.createElement('div')
+        tButtonContainerTop.setAttribute('id', 'buttons-container-top')
+        pageDisplay.appendChild(tButtonContainerTop)
+
+        // Create, Define & Place bottom button container
+        tButtonContainerBottom = document.createElement('div')
+        tButtonContainerBottom.setAttribute('id', 'buttons-container-bottom')
+        pageDisplay.appendChild(tButtonContainerBottom)
+    }
+
+    if(triviaQuestionNumber >= 10){
 
         // clear buttons
         tButtonContainerTop.innerHTML = ''
         tButtonContainerBottom.innerHTML = ''
 
-        // display score
+        // display triviaScore
         let scoreDiv = document.createElement('div')
-        scoreDiv.setAttribute('id', 'score-display')
-        scoreDiv.innerHTML = `You scored ${score}/10`
+        scoreDiv.setAttribute('id', 'triviaScore-display')
+        scoreDiv.innerHTML = `You scored ${triviaScore}/10`
         tButtonContainerTop.appendChild(scoreDiv)
-        score = 0
+        triviaScore = 0
 
     } else {
-        questionNum += 1
-        tQuestionNumber.innerText = `QUESTION: ${questionNum}`
-        tQuestionDisplay.innerText = marvelQuestions[`question${questionNum}`].question
-        tImage.setAttribute('src', marvelQuestions[`question${questionNum}`].image )
+        triviaQuestionNumber += 1
+        tQuestionNumber.innerHTML = `QUESTION: ${triviaQuestionNumber}`
+        triviaQuestion.innerHTML = marvelQuestions[`question${triviaQuestionNumber}`].question
+        triviaImage.setAttribute('src', marvelQuestions[`question${triviaQuestionNumber}`].image)
 
-        // ensure there are no buttons allready existing.
+        // ensure there are no buttons already existing.
         tButtonContainerTop.innerHTML = ''
         tButtonContainerBottom.innerHTML = ''
 
@@ -99,7 +138,7 @@ function displayQuestion(){
         let buttonCount = 0
 
         // add buttons for question options w/ EventListener
-        marvelQuestions[`question${questionNum}`].options.map(option => {
+        marvelQuestions[`question${triviaQuestionNumber}`].options.map(option => {
             // button creation
             let button = document.createElement('button')
             button.setAttribute('class', 'button')
@@ -123,20 +162,18 @@ function displayQuestion(){
     }
     
 }
-
-// event handler for button clicks
+// event handler for trivia button clicks
 function buttonChoice(e){
-    if(e.target.innerHTML == marvelQuestions[`question${questionNum}`].answer){
-        console.log("correct answer")
-        score += 1
-        displayQuestion()
+    if(e.target.innerHTML == marvelQuestions[`question${triviaQuestionNumber}`].answer){
+        triviaScore += 1
+        triviaPage()
     } else {
-        displayQuestion()
+        triviaPage()
     }
 }
-
+// created this function to clear main div and leave room for other functions to populate empty div.
 function clearPage(){
-    document.querySelector('#page-display').innerHTML = ''
+    pageDisplay.innerHTML = ''
 }
 
-displayQuestion()
+triviaNavButton.addEventListener('click', triviaPage)
