@@ -130,6 +130,68 @@ h1{
     background-color: #e71d36;
 }
 
+        /* TRIVIA MODAL */
+#trivia-modal-container{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    /* pointer-events: none; */
+    z-index: 1;
+}
+
+#trivia-modal{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 2rem;
+    width: 30rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #011627;
+    box-shadow: 0 0 200px 100px white;
+    flex-wrap: wrap;
+}
+
+#trivia-modal-top{
+    font-size: 2.5rem;
+    color: #e71d36;
+}
+
+#trivia-modal-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bottom-modal-text{
+    margin: 20px 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.modal-button{
+    background-color: rgb(33, 177, 179);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    margin: 5px 1rem;
+    height: 2rem;
+    width: 8rem;
+    cursor: pointer;
+}
+
+.modal-button:hover{
+    color: white;
+    background-color: rgba(0, 136, 169, 0.8)
+}
+
 @media(max-width: 500px){
     #the-question{
         font-size: 1.5rem;
@@ -139,11 +201,16 @@ h1{
     #buttons-container-bottom{
         flex-direction: column;
         align-items: center;
-
     }
 
     .button{
         font-size: 1rem;
         height: 3rem;
     }
+
+    #trivia-modal-top{
+        font-size: 1.7rem;
+
+    }
+
 }

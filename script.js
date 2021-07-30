@@ -10,6 +10,13 @@ let triviaImage;
 let triviaQuestion;
 let tButtonContainerTop;
 let tButtonContainerBottom;
+let triviaCompleteModal;
+let triviaModal;
+let triviaModalTop;
+let triviaModalBottom;
+let triviaModalBottomText;
+let triviaModalButton1;
+let triviaModalButton2;
 
 const marvelQuestions = {
     question1: {
@@ -109,19 +116,63 @@ function triviaPage(){
         tButtonContainerBottom = document.createElement('div')
         tButtonContainerBottom.setAttribute('id', 'buttons-container-bottom')
         pageDisplay.appendChild(tButtonContainerBottom)
+        
+        // Create, Define & Place modal container
+        triviaModalContainer = document.createElement('div')
+        triviaModalContainer.setAttribute('id', 'trivia-modal-container')
+        pageDisplay.appendChild(triviaModalContainer)
+
+        // Create, Define & Place modal inside of modal container
+        triviaModal = document.createElement('div')
+        triviaModal.setAttribute('id', 'trivia-modal')
+        triviaModalContainer.appendChild(triviaModal)
+        
+        // Modal will need a top in bottom
+        // Create, Define & Place top modal section
+        triviaModalTop = document.createElement('div')
+        triviaModalTop.setAttribute('id', 'trivia-modal-top')
+        triviaModal.appendChild(triviaModalTop)
+
+        // Create, Define & Place bottom modal section
+        triviaModalBottom = document.createElement('div')
+        triviaModalBottom.setAttribute('id', 'trivia-modal-bottom')
+        triviaModal.appendChild(triviaModalBottom)
+
+        // Create, Define & Place Bottom modal text Div
+        triviaModalBottomText = document.createElement('div')
+        triviaModalBottomText.setAttribute('id', 'bottom-modal-text')
+        triviaModalBottom.appendChild(triviaModalBottomText)
+
+        // Create, Define & Place bottom modal button (home)
+        triviaModalButton1 = document.createElement('button')
+        triviaModalButton1.setAttribute('class', 'modal-button')
+        triviaModalButton1.setAttribute('id', 'modal-button-1')
+        triviaModalBottom.appendChild(triviaModalButton1)
+
+        // Create, Define & Place bottom modal button (try again)
+        triviaModalButton2 = document.createElement('button')
+        triviaModalButton2.setAttribute('class', 'modal-button')
+        triviaModalButton2.setAttribute('id', 'modal-button-2')
+        triviaModalBottom.appendChild(triviaModalButton2)
     }
-
+    // Do this if all 10 questions have been shown
     if(triviaQuestionNumber >= 10){
+        // Create Modal for Score and option to play again
+        triviaModalTop.innerHTML = "Thanks for playing!"
+        triviaModalBottomText.innerHTML = `You got ${triviaScore}/10 right`
+        triviaModalButton1.textContent = "Home"
+        triviaModalButton2.textContent = "Try again"
+        triviaModalContainer.style.display = 'flex'
 
-        // clear buttons
-        tButtonContainerTop.innerHTML = ''
-        tButtonContainerBottom.innerHTML = ''
+        // EventListener for Home
 
-        // display triviaScore
-        let scoreDiv = document.createElement('div')
-        scoreDiv.setAttribute('id', 'triviaScore-display')
-        scoreDiv.innerHTML = `You scored ${triviaScore}/10`
-        tButtonContainerTop.appendChild(scoreDiv)
+        // EventListener for Try again
+        triviaModalButton2.addEventListener('click', function (){
+            clearPage()
+            triviaQuestionNumber = 0
+            triviaPage()
+        })
+        // Once the game is complete and score is displayed, reset score back to 0
         triviaScore = 0
 
     } else {
