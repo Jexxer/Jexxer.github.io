@@ -29,7 +29,7 @@ git clone https://github.com/Jexxer/sei-project1.git
 
 ## Help
 
-For any advise for common problems or issues please e-mail me
+For any advise or common problems or issues please e-mail me
 * jwatsoncode@gmail.com
 
 
