@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
     <title>Marvel Fanpage</title>
 </head>
 <body>
@@ -17,11 +18,18 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#" id="trivia-nav-button" >Games</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#" id="games-nav-button" >Games</a></li>
+                <li><a data-modal-target="#modal" href="#" id="about-link">About</a></li>
             </ul>
         </nav>
         <a class="git" href="https://github.com/Jexxer/sei-project1" target="_blank"><button id="git-button">Github</button></a>
+        <div id="modal" class='modal'>
+            <h1 id='about-me-title'>About me</h1>
+            <p id="about-me-p1" class="about-me-text">My name is Jesse Watson. Currently, I am a student at General Assembly undergoing the Software Engineering Immersive</p>
+            <p id="about-me-p2" class="about-me-text">Thank you SOOO much for taking time to look through my past projects. I had so much fun working on all of them. Each one taught me so much about the world of developement.</p>
+            <p id="about-me-p3" class="about-me-text">This project was super fun and demonstates my knowledge of DOM. Being restricted to a single page made me think in ways I haven't before and expanded how I approach problems and come to solutions for them in the future.</p>
+            <p id="about-me-p4" class="about-me-text">My goal is to complete my immersive class and step into the wonderful world of Software Engineering.</p>
+        </div>
     </header>
     <div id="page-display"></div>
     <script src="script.js"></script>

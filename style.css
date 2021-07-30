@@ -74,6 +74,7 @@ h1{
 #page-display{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 #question-number{
@@ -253,6 +254,10 @@ h1{
     transition-delay: 1000ms;
 }
 
+.game-card-text{
+    padding: 1rem 0;
+}
+
 .game-card-title{
     color: #25ced1;
     position: relative;
@@ -289,6 +294,44 @@ h1{
 .card-button:hover,
 .card-button:focus{
     background-color: #e71d36;
+}
+
+/* About me modal */
+
+#modal{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'PT Mono', monospace;
+    position: absolute;
+    right: 4rem;
+    top: 6rem;
+    height: 400px;
+    width: 300px;
+    background-color: #fdfffc;
+    z-index: 1;
+    box-shadow: 0 0 10px 0px grey;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    pointer-events: none;
+    overflow: scroll;
+}
+
+#modal.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+#about-me-title{
+    color: #e71d36;
+}
+
+.about-me-text{
+    padding-top: 1rem;
+}
+
+#about-me-p1{
+    border-top: 2px solid #011627;
 }
 
 @media(max-width: 500px){

@@ -1,9 +1,12 @@
 const pageDisplay = document.querySelector('#page-display')
-const triviaNavButton = document.querySelector('#trivia-nav-button')
+const gamesNavButton = document.querySelector('#games-nav-button')
 const title = document.querySelector('title')
+const aboutModalDiv = document.querySelector('#modal')
+const aboutButton = document.querySelector('#about-link')
+
+// Variables for Home page
 
 // Variables for Games page
-let gamesPageText;
 let gamesCardsContainer;
 let game1Card;
 let game1CardTitle;
@@ -13,7 +16,7 @@ let game2CardTitle;
 let game2CardText;
 let game2CardLink;
 let game3Card;
-let randomGameButton;
+
 
 // Declaring variables for trivia page to be used 
 let triviaQuestionNumber = 0
@@ -96,23 +99,25 @@ const marvelQuestions = {
 }
 
 // Home/Landing Page
+function homePage(){
 
-// About nav bar modal
+
+
+
+
+}
+
 
 // Games Page!
 function gamesPage(){
 
-    // "Choose your game" div for game page
-    gamesPageText = document.createElement('div')
-    gamesPageText.setAttribute('id', 'game-page-text')
-    pageDisplay.appendChild(gamesPageText)
 
     // Game page game card container
     gamesCardsContainer = document.createElement('div')
     gamesCardsContainer.setAttribute('id', 'game-card-container')
     pageDisplay.appendChild(gamesCardsContainer)
 
-    // card 1
+    // CARD 1
 
     // CARD 2
     game2Card = document.createElement('div')
@@ -151,25 +156,9 @@ function gamesPage(){
             triviaPage()
         })
 
+    // CARD 3
 
-
-
-    // card 3
-
-    // Button for random game
-    randomGameButton = document.createElement('button')
-    randomGameButton.setAttribute('id', 'random-game-button')
-    randomGameButton.textContent = 'Random'
-    pageDisplay.appendChild(randomGameButton)
-
-    // Set content for game text
-    gamesPageText.innerHTML = "Choose a game to play"
-
-    // Set content for card container
-
-    // Set content for 
 }
-
 // Trivia game page!
 function triviaPage(){
         // Set the title of the page
@@ -317,9 +306,21 @@ function clearPage(){
     pageDisplay.innerHTML = ''
 }
 
+// NAV BAR EVENT LISTENERS
 
-triviaNavButton.addEventListener('click', function(){
+// runs clearPage() then gamesPage()
+gamesNavButton.addEventListener('click', function(){
     clearPage()
     gamesPage()
+})
+
+// opens modal when About link is clicked
+aboutButton.addEventListener('click', function(){
+    aboutModalDiv.classList.add('active')
+})
+
+// closes modal if clicked
+pageDisplay.addEventListener('click', function(){
+    aboutModalDiv.classList.remove('active')
 })
 
