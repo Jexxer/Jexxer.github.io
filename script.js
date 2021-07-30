@@ -81,7 +81,7 @@ const marvelQuestions = {
     }
 }
 
-// populates screen with current question data
+// Trivia game page!
 function triviaPage(){
 
 
@@ -198,11 +198,11 @@ function triviaPage(){
             // applies button content and click event, places on screen.
             if(buttonCount >= 2){
                 button.innerText = option
-                button.addEventListener('click', buttonChoice)
+                button.addEventListener('click', triviaButtonChoice)
                 tButtonContainerBottom.appendChild(button)
             } else {
                 button.innerText = option
-                button.addEventListener('click', buttonChoice)
+                button.addEventListener('click', triviaButtonChoice)
                 tButtonContainerTop.appendChild(button)
                 buttonCount += 1
             }
@@ -214,7 +214,7 @@ function triviaPage(){
     
 }
 // event handler for trivia button clicks
-function buttonChoice(e){
+function triviaButtonChoice(e){
     if(e.target.innerHTML == marvelQuestions[`question${triviaQuestionNumber}`].answer){
         triviaScore += 1
         triviaPage()
