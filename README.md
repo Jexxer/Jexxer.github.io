@@ -44,5 +44,9 @@ For any advise for common problems or issues please e-mail me
 | Responsive Styling | L | 2 hrs| 1 hrs |  1 hrs  |
 | Trivia modal | M | 2 hrs | 1 hrs | 1 hrs |
 | Games Page | L | 1 hrs | X hrs | X hrs |
+| Create trivia Questions | H |  1 hrs| 1 hrs | 1 hrs |
+| Creating game logic | H | 2 hrs| 3 hrs |  3 hrs  |
+| Styling| M | 3 hrs|   X hrs|  X hrs |
+| Responsive Styling | L | 2 hrs| X hrs |  X hrs  |
 | Total | X | X  hrs |X  hrs  |  X hrs|
 
