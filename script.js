@@ -1,5 +1,19 @@
 const pageDisplay = document.querySelector('#page-display')
 const triviaNavButton = document.querySelector('#trivia-nav-button')
+const title = document.querySelector('title')
+
+// Variables for Games page
+let gamesPageText;
+let gamesCardsContainer;
+let game1Card;
+let game1CardTitle;
+let game2Card;
+let game2CardContent;
+let game2CardTitle;
+let game2CardText;
+let game2CardLink;
+let game3Card;
+let randomGameButton;
 
 // Declaring variables for trivia page to be used 
 let triviaQuestionNumber = 0
@@ -81,9 +95,85 @@ const marvelQuestions = {
     }
 }
 
+// Home/Landing Page
+
+// About nav bar modal
+
+// Games Page!
+function gamesPage(){
+
+    // "Choose your game" div for game page
+    gamesPageText = document.createElement('div')
+    gamesPageText.setAttribute('id', 'game-page-text')
+    pageDisplay.appendChild(gamesPageText)
+
+    // Game page game card container
+    gamesCardsContainer = document.createElement('div')
+    gamesCardsContainer.setAttribute('id', 'game-card-container')
+    pageDisplay.appendChild(gamesCardsContainer)
+
+    // card 1
+
+    // CARD 2
+    game2Card = document.createElement('div')
+    game2Card.setAttribute('id', 'trivia-card')
+    game2Card.setAttribute('class', 'game-card')
+    gamesCardsContainer.appendChild(game2Card)
+
+    // Card 2 children
+        // Trivia card content
+        game2CardContent = document.createElement('div')
+        game2CardContent.setAttribute('class', 'card-content')
+        game2Card.appendChild(game2CardContent)
+
+        // Trivia card title
+        game2CardTitle = document.createElement('h2')
+        game2CardTitle.setAttribute('class', 'game-card-title')
+        game2CardTitle.innerHTML = "Marvel Trivia"
+        game2CardContent.appendChild(game2CardTitle)
+
+        // Trivia card <p> text
+        game2CardText = document.createElement('p')
+        game2CardText.setAttribute('class', 'game-card-text')
+        game2CardText.innerHTML = 
+            "Test your knowledge of the Marvel Universe by playing this trivia game based on the MCU movies."
+        game2CardContent.appendChild(game2CardText)
+
+        // Trivia card link/button
+        game2CardLink = document.createElement('a')
+        game2CardLink.setAttribute('class', 'card-button')
+        game2CardLink.innerHTML = "PLAY"
+        game2CardContent.appendChild(game2CardLink)
+        game2CardLink.addEventListener('click', function(){
+            clearPage()
+            triviaQuestionNumber = 0
+            triviaScore = 0
+            triviaPage()
+        })
+
+
+
+
+    // card 3
+
+    // Button for random game
+    randomGameButton = document.createElement('button')
+    randomGameButton.setAttribute('id', 'random-game-button')
+    randomGameButton.textContent = 'Random'
+    pageDisplay.appendChild(randomGameButton)
+
+    // Set content for game text
+    gamesPageText.innerHTML = "Choose a game to play"
+
+    // Set content for card container
+
+    // Set content for 
+}
+
 // Trivia game page!
 function triviaPage(){
-
+        // Set the title of the page
+        title.innerHTML = "Marvel Trivia"
 
         if(triviaQuestionNumber == 0){
         // Create, Define & place Triva question number
@@ -96,11 +186,11 @@ function triviaPage(){
         imageContainer.setAttribute('id', 'image-container')
         pageDisplay.appendChild(imageContainer)
 
-        // Create, Define & Place Image inside container ^
-        triviaImage = document.createElement('img')
-        triviaImage.setAttribute('id', 'image')
-        triviaImage.setAttribute('alt', 'image')
-        imageContainer.appendChild(triviaImage)
+            // Create, Define & Place Image inside container ^
+            triviaImage = document.createElement('img')
+            triviaImage.setAttribute('id', 'image')
+            triviaImage.setAttribute('alt', 'image')
+            imageContainer.appendChild(triviaImage)
 
         // Create, Define & Place trivia question div
         triviaQuestion = document.createElement('div')
@@ -127,33 +217,33 @@ function triviaPage(){
         triviaModal.setAttribute('id', 'trivia-modal')
         triviaModalContainer.appendChild(triviaModal)
         
-        // Modal will need a top in bottom
-        // Create, Define & Place top modal section
-        triviaModalTop = document.createElement('div')
-        triviaModalTop.setAttribute('id', 'trivia-modal-top')
-        triviaModal.appendChild(triviaModalTop)
+            // Modal will need a top in bottom
+            // Create, Define & Place top modal section
+            triviaModalTop = document.createElement('div')
+            triviaModalTop.setAttribute('id', 'trivia-modal-top')
+            triviaModal.appendChild(triviaModalTop)
 
-        // Create, Define & Place bottom modal section
-        triviaModalBottom = document.createElement('div')
-        triviaModalBottom.setAttribute('id', 'trivia-modal-bottom')
-        triviaModal.appendChild(triviaModalBottom)
+            // Create, Define & Place bottom modal section
+            triviaModalBottom = document.createElement('div')
+            triviaModalBottom.setAttribute('id', 'trivia-modal-bottom')
+            triviaModal.appendChild(triviaModalBottom)
 
-        // Create, Define & Place Bottom modal text Div
-        triviaModalBottomText = document.createElement('div')
-        triviaModalBottomText.setAttribute('id', 'bottom-modal-text')
-        triviaModalBottom.appendChild(triviaModalBottomText)
+            // Create, Define & Place Bottom modal text Div
+            triviaModalBottomText = document.createElement('div')
+            triviaModalBottomText.setAttribute('id', 'bottom-modal-text')
+            triviaModalBottom.appendChild(triviaModalBottomText)
 
-        // Create, Define & Place bottom modal button (home)
-        triviaModalButton1 = document.createElement('button')
-        triviaModalButton1.setAttribute('class', 'modal-button')
-        triviaModalButton1.setAttribute('id', 'modal-button-1')
-        triviaModalBottom.appendChild(triviaModalButton1)
+            // Create, Define & Place bottom modal button (home)
+            triviaModalButton1 = document.createElement('button')
+            triviaModalButton1.setAttribute('class', 'modal-button')
+            triviaModalButton1.setAttribute('id', 'modal-button-1')
+            triviaModalBottom.appendChild(triviaModalButton1)
 
-        // Create, Define & Place bottom modal button (try again)
-        triviaModalButton2 = document.createElement('button')
-        triviaModalButton2.setAttribute('class', 'modal-button')
-        triviaModalButton2.setAttribute('id', 'modal-button-2')
-        triviaModalBottom.appendChild(triviaModalButton2)
+            // Create, Define & Place bottom modal button (try again)
+            triviaModalButton2 = document.createElement('button')
+            triviaModalButton2.setAttribute('class', 'modal-button')
+            triviaModalButton2.setAttribute('id', 'modal-button-2')
+            triviaModalBottom.appendChild(triviaModalButton2)
     }
     // Do this if all 10 questions have been shown
     if(triviaQuestionNumber >= 10){
@@ -222,9 +312,14 @@ function triviaButtonChoice(e){
         triviaPage()
     }
 }
-// created this function to clear main div and leave room for other functions to populate empty div.
+// Created this function to clear main div and leave room for other functions to populate empty div.
 function clearPage(){
     pageDisplay.innerHTML = ''
 }
 
-triviaNavButton.addEventListener('click', triviaPage)
+
+triviaNavButton.addEventListener('click', function(){
+    clearPage()
+    gamesPage()
+})
+

@@ -78,7 +78,7 @@ h1{
 
 #question-number{
     color: #e71d36;
-    margin: 0 auto;
+    margin: 0.5rem auto;
     font-size: 2rem;
 }
 
@@ -190,6 +190,105 @@ h1{
 .modal-button:hover{
     color: white;
     background-color: rgba(0, 136, 169, 0.8)
+}
+
+/* game library page */
+/* Heavy inspiration from Kevin Powels Cards on youtube */
+
+#random-game-button{
+    color: black;
+    width: 8rem;
+    height: 2rem;
+}
+
+#game-card-container{
+    display: grid;
+    place-items: center;
+    line-height: 1.6;
+    background-color: #fdfffc;
+    height: 70vh;
+}
+
+.game-card{
+    color: white;
+    max-width: 30ch;
+    border: 2px solid black;
+    background-image: url("https://assets.mycast.io/posters/marvel-cinematic-universe-fan-casting-poster-17828-large.jpg?1571430280");
+    background-size: cover;
+    padding: 10rem 0 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    transition: transform 300ms ease;
+}
+
+.game-card:hover{
+    transform: scale(1.05)
+}
+
+.card-content{
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(
+        hsl(0 0% 0% / 0),
+        hsl(20 0% 0% / 0.8) 20%,
+        hsl(0 0% 0% / 1)
+    );
+    transform: translateY(70%);
+    transition: transform 500ms ease;
+}
+
+.game-card:hover .card-content{
+    transform: translateY(0);
+    transition-delay: 500ms;
+}
+
+.card-content > *:not(.game-card-title){
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+
+.game-card:hover .card-content > *:not(.game-card-title) {
+    opacity: 1;
+    transition-delay: 1000ms;
+}
+
+.game-card-title{
+    color: #25ced1;
+    position: relative;
+    width: max-content;
+}
+
+.game-card-title::after{
+    content: '';
+    position: absolute;
+    height: 4px;
+    left: calc(var(--padding) * -1);
+    bottom: 0;
+    width: calc(100% + var(--padding));
+    background: #25ced1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms ease;
+}
+
+.game-card:hover .game-card-title::after{
+    transform: scaleX(1);
+}
+
+.card-button{
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    background-color: #25ced1;
+    padding: 0.5em 1.25em;
+    border-radius: 0.25rem;
+}
+
+.card-button:hover,
+.card-button:focus{
+    background-color: #e71d36;
 }
 
 @media(max-width: 500px){
