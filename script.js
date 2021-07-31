@@ -1,10 +1,16 @@
 const pageDisplay = document.querySelector('#page-display')
 const gamesNavButton = document.querySelector('#games-nav-button')
+const homePageButton = document.querySelector('#home-page')
 const title = document.querySelector('title')
 const aboutModalDiv = document.querySelector('#modal')
 const aboutButton = document.querySelector('#about-link')
 
 // Variables for Home page
+let landingPageContainer;
+let landingPageDiv1;
+let landingPageDivChild;
+let landingPageDiv2;
+let landingPageDiv3;
 
 // Variables for Games page
 let gamesCardsContainer;
@@ -100,12 +106,39 @@ const marvelQuestions = {
 
 // Home/Landing Page
 function homePage(){
+    // clear page display div
+    clearPage()
+
+    // Create, Define, Place Landing Page container
+    landingPageContainer = document.createElement('div')
+    landingPageContainer.setAttribute('id', 'landing-page-container')
+    pageDisplay.appendChild(landingPageContainer)
+
+    // Create, Define, Place Landing page Div
+    landingPageDiv1 = document.createElement('div')
+    landingPageDiv1.setAttribute('id', 'home-div-1')
+    landingPageDiv1.setAttribute('class', 'landing-div')
+    landingPageContainer.appendChild(landingPageDiv1)
+
+        // Place div that will host a background image of Avengers
+        landingPageDivChild = document.createElement('div')
+        landingPageDivChild.setAttribute('id', 'landing-image')
+        landingPageDiv1.appendChild(landingPageDivChild)
+
+    // Create, Define, Place section 1 div
+
+        // MAKE 2 SECTIONS SET TO FLEX
+        // div 1
+
+        // div 2
 
 
 
+    // Create, Define, Place section 2 div
 
-
+    // Create, Define, Place section 3 div
 }
+
 
 
 // Games Page!
@@ -244,6 +277,7 @@ function triviaPage(){
         triviaModalContainer.style.display = 'flex'
 
         // EventListener for Home
+        triviaModalButton1.addEventListener('click', homePage)
 
         // EventListener for Try again
         triviaModalButton2.addEventListener('click', function (){
@@ -272,6 +306,7 @@ function triviaPage(){
             // button creation
             let button = document.createElement('button')
             button.setAttribute('class', 'button')
+            button.setAttribute('id', 'trivia-option-buttons')
 
             // This if statement puts two buttons into a seperate div for styling
             // applies button content and click event, places on screen.
@@ -314,6 +349,9 @@ gamesNavButton.addEventListener('click', function(){
     gamesPage()
 })
 
+// open Home page
+homePageButton.addEventListener('click', homePage)
+
 // opens modal when About link is clicked
 aboutButton.addEventListener('click', function(){
     aboutModalDiv.classList.add('active')
@@ -324,3 +362,4 @@ pageDisplay.addEventListener('click', function(){
     aboutModalDiv.classList.remove('active')
 })
 
+homePage()
