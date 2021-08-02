@@ -4,6 +4,9 @@ const homePageButton = document.querySelector('#home-page')
 const title = document.querySelector('title')
 const aboutModalDiv = document.querySelector('#modal')
 const aboutButton = document.querySelector('#about-link')
+const mobileGamesNavButton = document.querySelector('#mobile-games-nav-button')
+const mobileHomePageButton = document.querySelector('#mobile-home-page')
+const mobileAboutModalDiv = document.querySelector('#mobile-about-link')
 
 // Variables for Home page
 let landingPageContainer;
@@ -125,22 +128,24 @@ function homePage(){
         landingPageDivChild.setAttribute('id', 'landing-image')
         landingPageDiv1.appendChild(landingPageDivChild)
 
-    // Create, Define, Place section 1 div
+    // Create, Define, Place section 2 div
+    landingPageDiv2 = document.createElement('div')
+    landingPageDiv2.setAttribute('id', 'landing-page-div-2')
+    pageDisplay.appendChild(landingPageDiv2)
 
         // MAKE 2 SECTIONS SET TO FLEX
         // div 1
+
 
         // div 2
 
 
 
-    // Create, Define, Place section 2 div
-
     // Create, Define, Place section 3 div
+    landingPageDiv3 = document.createElement('div')
+    landingPageDiv3.setAttribute('id', 'landing-page-div-3')
+    pageDisplay.appendChild(landingPageDiv3)
 }
-
-
-
 // Games Page!
 function gamesPage(){
 
@@ -340,26 +345,28 @@ function triviaButtonChoice(e){
 function clearPage(){
     pageDisplay.innerHTML = ''
 }
-
-// NAV BAR EVENT LISTENERS
-
+// ---NAV BAR EVENT LISTENERS---
 // runs clearPage() then gamesPage()
 gamesNavButton.addEventListener('click', function(){
     clearPage()
     gamesPage()
 })
-
+mobileGamesNavButton.addEventListener('click', function(){
+    clearPage()
+    gamesPage()
+})
 // open Home page
 homePageButton.addEventListener('click', homePage)
-
+mobileHomePageButton.addEventListener('click', homePage)
 // opens modal when About link is clicked
 aboutButton.addEventListener('click', function(){
     aboutModalDiv.classList.add('active')
 })
-
+mobileAboutModalDiv.addEventListener('click', function(){
+    aboutModalDiv.classList.add('active')
+})
 // closes modal if clicked
 pageDisplay.addEventListener('click', function(){
     aboutModalDiv.classList.remove('active')
 })
-
 homePage()
