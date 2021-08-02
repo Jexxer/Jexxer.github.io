@@ -18,16 +18,24 @@ let landingPageDiv3;
 // Variables for Games page
 let gamesCardsContainer;
 let game1Card;
+let game1CardContent;
 let game1CardTitle;
+let game1CardText;
+let game1CardLink;
 let game2Card;
 let game2CardContent;
 let game2CardTitle;
 let game2CardText;
 let game2CardLink;
 let game3Card;
+let game3CardContent;
+let game3CardTitle;
+let game3CardText;
+let game3CardLink;
 
 
-// Declaring variables for trivia page to be used 
+// Declaring variables for trivia page to be used
+let triviaGame;
 let triviaQuestionNumber = 0
 let triviaScore = 0
 let tQuestionNumber;
@@ -106,6 +114,130 @@ const marvelQuestions = {
         options: ['Morag', 'Carthan', 'Xandar', 'Hala']
     }
 }
+const ironManQuestions = {
+    question1: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'What is Iron Man\'s real name?',
+        answer: 'Tony Stark',
+        options: ['Tony Stark', 'Steve Stark', 'Henry Stark', 'Howard Stark']
+    },
+    question2: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'What is the name of Iron Man\'s computer system?',
+        answer: 'J.A.R.V.I.S.',
+        options: ['Oracle', 'J.A.R.V.I.S.', 'H.E.L.E.N.', 'HAL 9000']
+    },
+    question3: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Stan Lee based Tony Stark on which of the following real-life playboys?',
+        answer: 'Howard Hughes',
+        options: ['Howard Hughes', 'Elon Musk', 'Richard Branson', 'Hugh Hefner']
+    },
+    question4: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'What does Tony Stark use to prevent shrapnel from entering his heart?',
+        answer: 'A Miniature Arc Reactor',
+        options: ['A Miniature Arc Reactor', 'Biotechnology', 'Nanotechnology', 'Wind Power technology']
+    },
+    question5: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Which college did Tony Stark go to?',
+        answer: 'MIT',
+        options: ['Harvard', 'Stanford', 'MIT', 'Yale']
+    },
+    question6: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'What was Tony Starks adress in Iron Man 3?',
+        answer: '10880 Malibu Point',
+        options: ['2814 Guardian Blvd', '2000 Beverly Hills Drive', '82 Yancy Street', '10880 Malibu Point']
+    },
+    question7: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'What was the name of Tony Starks father?',
+        answer: 'Howard',
+        options: ['Harry', 'Henry', 'Howard', 'Harold']
+    },
+    question8: {
+        image: 'https://via.placeholder.com/400x500',
+        question: "What is the name of Tony Starks Mother?",
+        answer: 'Maria',
+        options: ['Miriam', 'Maria', 'Mary', 'Millie']
+    },
+    question9: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Which chemical element was poisoning Tony Stark\'s blood in Iron Man 2?',
+        answer: 'Palladium',
+        options: ['Beryllium', 'Palladium', 'Uranium', 'Lithium']
+    },
+    question10: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'What is the name of Tony Starks love interest?',
+        answer: 'Pepper Potts',
+        options: ['Jenny James', 'Ivy Pepper', 'Pepper Potts', 'Jane Foster']
+    }
+}
+const thorQuestions = {
+    question1: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Thor\'s Hammer is called?',
+        answer: 'Mjolnir',
+        options: ['Stormbreaker', 'Dainsleif', 'Mjolnir', 'Gleipnir']
+    },
+    question2: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Who is Thors Father?',
+        answer: 'Odin',
+        options: ['Loki', 'Odin', 'Thanos', 'Frigg']
+    },
+    question3: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Where does Thor live?',
+        answer: 'Asgard',
+        options: ['Yggdrasil', 'Asgard', 'Ragnarok', 'New York']
+    },
+    question4: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'What is the name of Thor\'s Axe?',
+        answer: 'Stormbreaker',
+        options: ['Hatstamper', 'Mjolnir', 'Stormbreaker', 'Windcrusher']
+    },
+    question5: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Who is Thor\'s brother?',
+        answer: 'Loki',
+        options: ['Loki', 'Steve', 'Odin', 'Norse']
+    },
+    question6: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Who is Thor\'s sister?',
+        answer: 'Hela',
+        options: ['Hammy', 'Hena', 'Hela', 'Frigga']
+    },
+    question7: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Thor was once banished from Asgard for attempting to kill Whom?',
+        answer: 'Frost Giants',
+        options: ['Asgardians', 'Hela', 'Aliens', 'Frost Giants']
+    },
+    question8: {
+        image: 'https://via.placeholder.com/400x500',
+        question: "What term is used to describe the alignment of the Nine Realms?",
+        answer: 'The Convergence',
+        options: ['The Eclipse', 'The Supreme Alignment', 'The Convergence', 'The Emergent']
+    },
+    question9: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Which member of the Avengers has Thor fought?',
+        answer: 'Hulk',
+        options: ['Ant Man', 'Black Widow', 'Hulk', 'Captain America']
+    },
+    question10: {
+        image: 'https://via.placeholder.com/400x500',
+        question: 'Who helped Thor locate his missing father?',
+        answer: 'Dr. Strange',
+        options: ['Dr. Banner', 'The Supreme One', 'Neo', 'Dr. Strange']
+    }
+}
 
 // Home/Landing Page
 function homePage(){
@@ -156,6 +288,42 @@ function gamesPage(){
     pageDisplay.appendChild(gamesCardsContainer)
 
     // CARD 1
+    game1Card = document.createElement('div')
+    game1Card.setAttribute('id', 'trivia-card-1')
+    game1Card.setAttribute('class', 'game-card')
+    gamesCardsContainer.appendChild(game1Card)
+
+        // Card 1 children
+        // Trivia card content
+        game1CardContent = document.createElement('div')
+        game1CardContent.setAttribute('class', 'card-content')
+        game1Card.appendChild(game1CardContent)
+
+        // Trivia card title
+        game1CardTitle = document.createElement('h2')
+        game1CardTitle.setAttribute('class', 'game-card-title')
+        game1CardTitle.innerHTML = "Iron Man Trivia"
+        game1CardContent.appendChild(game1CardTitle)
+
+        // Trivia card <p> text
+        game1CardText = document.createElement('p')
+        game1CardText.setAttribute('class', 'game-card-text')
+        game1CardText.innerHTML = 
+            "Test your knowledge of Iron man by playing this trivia game based on the MCU movies."
+        game1CardContent.appendChild(game1CardText)
+
+        // Trivia card link/button
+        game1CardLink = document.createElement('a')
+        game1CardLink.setAttribute('class', 'card-button')
+        game1CardLink.innerHTML = "PLAY"
+        game1CardContent.appendChild(game1CardLink)
+        game1CardLink.addEventListener('click', function(){
+            clearPage()
+            triviaGame = 1;
+            triviaQuestionNumber = 0
+            triviaScore = 0
+            triviaPage()
+        })
 
     // CARD 2
     game2Card = document.createElement('div')
@@ -189,12 +357,49 @@ function gamesPage(){
         game2CardContent.appendChild(game2CardLink)
         game2CardLink.addEventListener('click', function(){
             clearPage()
+            triviaGame = 2;
             triviaQuestionNumber = 0
             triviaScore = 0
             triviaPage()
         })
 
     // CARD 3
+    game3Card = document.createElement('div')
+    game3Card.setAttribute('id', 'trivia-card-3')
+    game3Card.setAttribute('class', 'game-card')
+    gamesCardsContainer.appendChild(game3Card)
+
+        // Card 3 children
+        // Trivia card content
+        game3CardContent = document.createElement('div')
+        game3CardContent.setAttribute('class', 'card-content')
+        game3Card.appendChild(game3CardContent)
+
+        // Trivia card title
+        game3CardTitle = document.createElement('h2')
+        game3CardTitle.setAttribute('class', 'game-card-title')
+        game3CardTitle.innerHTML = "Thor Trivia"
+        game3CardContent.appendChild(game3CardTitle)
+
+        // Trivia card <p> text
+        game3CardText = document.createElement('p')
+        game3CardText.setAttribute('class', 'game-card-text')
+        game3CardText.innerHTML = 
+            "Test your knowledge of Thor by playing this trivia game based on the MCU movies."
+        game3CardContent.appendChild(game3CardText)
+
+        // Trivia card link/button
+        game3CardLink = document.createElement('a')
+        game3CardLink.setAttribute('class', 'card-button')
+        game3CardLink.innerHTML = "PLAY"
+        game3CardContent.appendChild(game3CardLink)
+        game3CardLink.addEventListener('click', function(){
+            clearPage()
+            triviaGame = 3;
+            triviaQuestionNumber = 0
+            triviaScore = 0
+            triviaPage()
+        })
 
 }
 // Trivia game page!
@@ -294,46 +499,120 @@ function triviaPage(){
         triviaScore = 0
 
     } else {
-        triviaQuestionNumber += 1
-        tQuestionNumber.innerHTML = `QUESTION: ${triviaQuestionNumber}`
-        triviaQuestion.innerHTML = marvelQuestions[`question${triviaQuestionNumber}`].question
-        triviaImage.setAttribute('src', marvelQuestions[`question${triviaQuestionNumber}`].image)
+        if(triviaGame == 1){
+            triviaQuestionNumber += 1
+            tQuestionNumber.innerHTML = `QUESTION: ${triviaQuestionNumber}`
+            triviaQuestion.innerHTML = ironManQuestions[`question${triviaQuestionNumber}`].question
+            triviaImage.setAttribute('src', ironManQuestions[`question${triviaQuestionNumber}`].image)
 
-        // ensure there are no buttons already existing.
-        tButtonContainerTop.innerHTML = ''
-        tButtonContainerBottom.innerHTML = ''
+            // ensure there are no buttons already existing.
+            tButtonContainerTop.innerHTML = ''
+            tButtonContainerBottom.innerHTML = ''
 
-        // Counts how many buttons are made
-        let buttonCount = 0
+            // Counts how many buttons are made
+            let buttonCount = 0
 
-        // add buttons for question options w/ EventListener
-        marvelQuestions[`question${triviaQuestionNumber}`].options.map(option => {
-            // button creation
-            let button = document.createElement('button')
-            button.setAttribute('class', 'button')
-            button.setAttribute('id', 'trivia-option-buttons')
+            // add buttons for question options w/ EventListener
+            ironManQuestions[`question${triviaQuestionNumber}`].options.map(option => {
+                // button creation
+                let button = document.createElement('button')
+                button.setAttribute('class', 'button')
+                button.setAttribute('id', 'trivia-option-buttons')
 
-            // This if statement puts two buttons into a seperate div for styling
-            // applies button content and click event, places on screen.
-            if(buttonCount >= 2){
-                button.innerText = option
-                button.addEventListener('click', triviaButtonChoice)
-                tButtonContainerBottom.appendChild(button)
-            } else {
-                button.innerText = option
-                button.addEventListener('click', triviaButtonChoice)
-                tButtonContainerTop.appendChild(button)
-                buttonCount += 1
-            }
-            
-            
-        })
+                // This if statement puts two buttons into a seperate div for styling
+                // applies button content and click event, places on screen.
+                if(buttonCount >= 2){
+                    button.innerText = option
+                    button.addEventListener('click', ironManButtonChoice)
+                    tButtonContainerBottom.appendChild(button)
+                } else {
+                    button.innerText = option
+                    button.addEventListener('click', ironManButtonChoice)
+                    tButtonContainerTop.appendChild(button)
+                    buttonCount += 1
+                }
+                
+                
+            })
+        }
+        if(triviaGame == 2){
+            triviaQuestionNumber += 1
+            tQuestionNumber.innerHTML = `QUESTION: ${triviaQuestionNumber}`
+            triviaQuestion.innerHTML = marvelQuestions[`question${triviaQuestionNumber}`].question
+            triviaImage.setAttribute('src', marvelQuestions[`question${triviaQuestionNumber}`].image)
+
+            // ensure there are no buttons already existing.
+            tButtonContainerTop.innerHTML = ''
+            tButtonContainerBottom.innerHTML = ''
+
+            // Counts how many buttons are made
+            let buttonCount = 0
+
+            // add buttons for question options w/ EventListener
+            marvelQuestions[`question${triviaQuestionNumber}`].options.map(option => {
+                // button creation
+                let button = document.createElement('button')
+                button.setAttribute('class', 'button')
+                button.setAttribute('id', 'trivia-option-buttons')
+
+                // This if statement puts two buttons into a seperate div for styling
+                // applies button content and click event, places on screen.
+                if(buttonCount >= 2){
+                    button.innerText = option
+                    button.addEventListener('click', marvelButtonChoice)
+                    tButtonContainerBottom.appendChild(button)
+                } else {
+                    button.innerText = option
+                    button.addEventListener('click', marvelButtonChoice)
+                    tButtonContainerTop.appendChild(button)
+                    buttonCount += 1
+                }
+                
+                
+            })
+        }   
+        if(triviaGame == 3){
+            triviaQuestionNumber += 1
+            tQuestionNumber.innerHTML = `QUESTION: ${triviaQuestionNumber}`
+            triviaQuestion.innerHTML = thorQuestions[`question${triviaQuestionNumber}`].question
+            triviaImage.setAttribute('src', thorQuestions[`question${triviaQuestionNumber}`].image)
+
+            // ensure there are no buttons already existing.
+            tButtonContainerTop.innerHTML = ''
+            tButtonContainerBottom.innerHTML = ''
+
+            // Counts how many buttons are made
+            let buttonCount = 0
+
+            // add buttons for question options w/ EventListener
+            thorQuestions[`question${triviaQuestionNumber}`].options.map(option => {
+                // button creation
+                let button = document.createElement('button')
+                button.setAttribute('class', 'button')
+                button.setAttribute('id', 'trivia-option-buttons')
+
+                // This if statement puts two buttons into a seperate div for styling
+                // applies button content and click event, places on screen.
+                if(buttonCount >= 2){
+                    button.innerText = option
+                    button.addEventListener('click', thorButtonChoice)
+                    tButtonContainerBottom.appendChild(button)
+                } else {
+                    button.innerText = option
+                    button.addEventListener('click', thorButtonChoice)
+                    tButtonContainerTop.appendChild(button)
+                    buttonCount += 1
+                }
+                
+                
+            })
+        }
         
     }
     
 }
 // event handler for trivia button clicks
-function triviaButtonChoice(e){
+function marvelButtonChoice(e){
     if(e.target.innerHTML == marvelQuestions[`question${triviaQuestionNumber}`].answer){
         triviaScore += 1
         triviaPage()
@@ -341,6 +620,23 @@ function triviaButtonChoice(e){
         triviaPage()
     }
 }
+function ironManButtonChoice(e){
+    if(e.target.innerHTML == ironManQuestions[`question${triviaQuestionNumber}`].answer){
+        triviaScore += 1
+        triviaPage()
+    } else {
+        triviaPage()
+    }
+}
+function thorButtonChoice(e){
+    if(e.target.innerHTML == thorQuestions[`question${triviaQuestionNumber}`].answer){
+        triviaScore += 1
+        triviaPage()
+    } else {
+        triviaPage()
+    }
+}
+
 // Created this function to clear main div and leave room for other functions to populate empty div.
 function clearPage(){
     pageDisplay.innerHTML = ''

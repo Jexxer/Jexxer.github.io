@@ -212,11 +212,22 @@ h1{
 }
 
 #game-card-container{
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     line-height: 1.6;
     background-color: #011627;
     height: 70vh;
+}
+
+#trivia-card-1{
+    background-image: url("https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg");
+    background-size: cover;
+}
+
+#trivia-card-3{
+    background-image: url("https://i.etsystatic.com/15963200/r/il/ceef76/1730782907/il_570xN.1730782907_kkk9.jpg");
+    background-size: cover;
 }
 
 .game-card{
