@@ -129,9 +129,9 @@ function homePage(){
         landingPageDiv1.appendChild(landingPageDivChild)
 
     // Create, Define, Place section 2 div
-    landingPageDiv2 = document.createElement('div')
-    landingPageDiv2.setAttribute('id', 'landing-page-div-2')
-    pageDisplay.appendChild(landingPageDiv2)
+    // landingPageDiv2 = document.createElement('div')
+    // landingPageDiv2.setAttribute('id', 'landing-page-div-2')
+    // pageDisplay.appendChild(landingPageDiv2)
 
         // MAKE 2 SECTIONS SET TO FLEX
         // div 1
@@ -142,9 +142,9 @@ function homePage(){
 
 
     // Create, Define, Place section 3 div
-    landingPageDiv3 = document.createElement('div')
-    landingPageDiv3.setAttribute('id', 'landing-page-div-3')
-    pageDisplay.appendChild(landingPageDiv3)
+    // landingPageDiv3 = document.createElement('div')
+    // landingPageDiv3.setAttribute('id', 'landing-page-div-3')
+    // pageDisplay.appendChild(landingPageDiv3)
 }
 // Games Page!
 function gamesPage(){
