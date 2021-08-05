@@ -404,21 +404,6 @@ h1{
         margin-bottom: 1rem;
     }
 
-    .nav-links{
-        display: none;
-    }
-
-    .mobile-nav-links{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        list-style: none;
-    }
-
-    ul li a{
-        margin: 0 12px;
-    }
 
     #the-question{
         font-size: 1.5rem;
@@ -450,11 +435,26 @@ h1{
 
 }
 
-@media(max-width: 800px){
+@media(max-width: 850px){
     #game-card-container{
         display: flex;
         flex-direction: column;
         height: 150vh;
     }
 
+    .mobile-nav-links{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    .nav-links{
+        display: none;
+    }
+
+    ul li a{
+        margin: 0 12px;
+    }
 }
