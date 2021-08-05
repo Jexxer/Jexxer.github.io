@@ -116,61 +116,61 @@ const marvelQuestions = {
 }
 const ironManQuestions = {
     question1: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: 'What is Iron Man\'s real name?',
         answer: 'Tony Stark',
         options: ['Tony Stark', 'Steve Stark', 'Henry Stark', 'Howard Stark']
     },
     question2: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.pinimg.com/originals/9c/42/e1/9c42e1bfdb3183a673567076eae76733.jpg',
         question: 'What is the name of Iron Man\'s computer system?',
         answer: 'J.A.R.V.I.S.',
         options: ['Oracle', 'J.A.R.V.I.S.', 'H.E.L.E.N.', 'HAL 9000']
     },
     question3: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: 'Stan Lee based Tony Stark on which of the following real-life playboys?',
         answer: 'Howard Hughes',
         options: ['Howard Hughes', 'Elon Musk', 'Richard Branson', 'Hugh Hefner']
     },
     question4: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: 'What does Tony Stark use to prevent shrapnel from entering his heart?',
         answer: 'A Miniature Arc Reactor',
         options: ['A Miniature Arc Reactor', 'Biotechnology', 'Nanotechnology', 'Wind Power technology']
     },
     question5: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: 'Which college did Tony Stark go to?',
         answer: 'MIT',
         options: ['Harvard', 'Stanford', 'MIT', 'Yale']
     },
     question6: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: 'What was Tony Starks adress in Iron Man 3?',
         answer: '10880 Malibu Point',
         options: ['2814 Guardian Blvd', '2000 Beverly Hills Drive', '82 Yancy Street', '10880 Malibu Point']
     },
     question7: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: 'What was the name of Tony Starks father?',
         answer: 'Howard',
         options: ['Harry', 'Henry', 'Howard', 'Harold']
     },
     question8: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: "What is the name of Tony Starks Mother?",
         answer: 'Maria',
         options: ['Miriam', 'Maria', 'Mary', 'Millie']
     },
     question9: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: 'Which chemical element was poisoning Tony Stark\'s blood in Iron Man 2?',
         answer: 'Palladium',
         options: ['Beryllium', 'Palladium', 'Uranium', 'Lithium']
     },
     question10: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.etsystatic.com/10791463/r/il/a11b08/1321062493/il_fullxfull.1321062493_izrb.jpg',
         question: 'What is the name of Tony Starks love interest?',
         answer: 'Pepper Potts',
         options: ['Jenny James', 'Ivy Pepper', 'Pepper Potts', 'Jane Foster']
@@ -178,19 +178,19 @@ const ironManQuestions = {
 }
 const thorQuestions = {
     question1: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.pinimg.com/originals/00/c4/e8/00c4e836a1a4e10cd56a6b63984e40d6.png',
         question: 'Thor\'s Hammer is called?',
         answer: 'Mjolnir',
         options: ['Stormbreaker', 'Dainsleif', 'Mjolnir', 'Gleipnir']
     },
     question2: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://flxt.tmsimg.com/assets/p7989358_p_v10_af.jpg',
         question: 'Who is Thors Father?',
         answer: 'Odin',
         options: ['Loki', 'Odin', 'Thanos', 'Frigg']
     },
     question3: {
-        image: 'https://via.placeholder.com/400x500',
+        image: 'https://i.pinimg.com/originals/21/50/11/215011648236a626643d4b2a60bd8c7e.jpg',
         question: 'Where does Thor live?',
         answer: 'Asgard',
         options: ['Yggdrasil', 'Asgard', 'Ragnarok', 'New York']
@@ -422,6 +422,8 @@ function triviaPage(){
             triviaImage = document.createElement('img')
             triviaImage.setAttribute('id', 'image')
             triviaImage.setAttribute('alt', 'image')
+            triviaImage.style.width = '400px';
+            triviaImage.style.height = '500px';
             imageContainer.appendChild(triviaImage)
 
         // Create, Define & Place trivia question div
