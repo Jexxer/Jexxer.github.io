@@ -394,10 +394,6 @@ h1{
 
 @media(max-width: 500px){
 
-    header h1{
-        display: none;
-    }
-
     header{
         display: flex;
         justify-content: space-evenly;
@@ -456,5 +452,11 @@ h1{
 
     ul li a{
         margin: 0 12px;
+    }
+}
+
+@media(max-width: 630px){
+    header h1{
+        display: none;
     }
 }
