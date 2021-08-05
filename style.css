@@ -393,6 +393,7 @@ h1{
 }
 
 @media(max-width: 500px){
+
     header h1{
         display: none;
     }
@@ -445,6 +446,15 @@ h1{
     #trivia-modal-top{
         font-size: 1.7rem;
 
+    }
+
+}
+
+@media(max-width: 800px){
+    #game-card-container{
+        display: flex;
+        flex-direction: column;
+        height: 150vh;
     }
 
 }

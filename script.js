@@ -656,15 +656,19 @@ mobileGamesNavButton.addEventListener('click', function(){
 // open Home page
 homePageButton.addEventListener('click', homePage)
 mobileHomePageButton.addEventListener('click', homePage)
+
 // opens modal when About link is clicked
 aboutButton.addEventListener('click', function(){
     aboutModalDiv.classList.add('active')
 })
+
 mobileAboutModalDiv.addEventListener('click', function(){
     aboutModalDiv.classList.add('active')
 })
+
 // closes modal if clicked
 pageDisplay.addEventListener('click', function(){
     aboutModalDiv.classList.remove('active')
 })
+
 homePage()
