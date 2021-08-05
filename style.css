@@ -134,6 +134,7 @@ h1{
     background-color: #ff9f1c;
     margin: 8px 8px;
     box-shadow: 3px 3px 10px black;
+    cursor: pointer;
 }
 
 .button:hover{
