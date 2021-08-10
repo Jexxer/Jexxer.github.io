@@ -1,3 +1,6 @@
+## View this deployed!
+https://jexxer.github.io/
+
 # SEI Project 1
 
 The purpose of this project is to display the skills I have attained from the first unit in General Assembly's Software Engineering Immersive. 
